@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+
+@theme {
+  /* === PALET WARNA === */
+  --color-cream: #F5F3EF;
+  --color-paper: #FFFFFF;
+  --color-ink: #0D0D0D;
+  --color-graphite: #5C5A55;
+  --color-hairline: #E4E1DA;
+  
+  /* Warna Aksen (Terracotta) */
+  --color-accent: #C4633B;
+  --color-accent-light: #E0906B;
+  --color-accent-dark: #9A4A28;
+
+  /* === TIPOGRAFI === */
+  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "Inter", sans-serif;
+
+  /* === LETTER SPACING === */
+  --tracking-widest2: 0.2em;
+}
