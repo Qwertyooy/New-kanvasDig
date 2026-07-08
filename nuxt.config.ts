@@ -9,6 +9,10 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
+   
+  build: {
+    transpile: ['gsap']
+  },
 
   modules: ['@nuxt/ui'],
 });

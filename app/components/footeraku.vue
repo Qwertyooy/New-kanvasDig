@@ -5,7 +5,7 @@
     
     <!-- Bagian Kiri: Hak Cipta -->
     <p class="text-center md:text-left">
-      &copy; 2026 Kanvas Digital. All rights reserved.
+      &copy; 2026 Kanvas Digital        . All rights reserved.
     </p>
 
     <!-- Bagian Kanan: Link Simpel -->
