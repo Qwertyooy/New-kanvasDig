@@ -8,7 +8,7 @@ const NavLink = [
 </script>
 
 <template>  
-    <header class="animate-tech-in  fixed mx-10 top-0 left-0 right-0 z-50 py-2 px-6 flex items-center justify-between backdrop-blur-lg bg-paper/70 border border-hairline rounded-2xl mt-4">
+    <header class="animate-tech-in  fixed top-0 items-center left-0 right-0 z-50  flex justify-between w-full p-2 pt-3 backdrop-blur-2xl">
         <a class="animate-fade-in-up [animation-delay:0s] text-lg font-semibold">KanvasDigital.my.id</a>
          
         

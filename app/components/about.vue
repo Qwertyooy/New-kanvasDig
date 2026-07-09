@@ -18,71 +18,131 @@ const slides = [
   }
 ]
 
-  gsap.registerPlugin(ScrollTrigger)
-  const sectionRef =ref(null)
-  let ctx;
-   
-  onMounted(() => {
-    ctx = gsap.context(() => {
-        const target = gsap.utils.toArray('.reveal-text')
+gsap.registerPlugin(ScrollTrigger)
+const sectionRef = ref(null)
+const aboutSectionRef = ref(null)
+const progressBarRef = ref(null)
 
-        target.forEach((el) => {
-            gsap.to(el,{
-            opacity: 1,
-            y:0,
-            duration:2,
-            scrollTrigger:{
-                trigger:el,
-                start:'top 85%',
-                end:'top 50%',  
-                scrub:true,
+const currentSlide = ref(0)
+const activeText = ref(slides[0])
 
-                onLeave: () => gsap.to(el, { opacity: 0, y: -20, duration: 0.3 }),
+let ctx;
+let carouselTimeline;
+
+onMounted(() => {
+  ctx = gsap.context(() => {
+    // 1. Existing Reveal Animation (Section 1)
+    const target = gsap.utils.toArray('.reveal-text')
+    target.forEach((el) => {
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 2,
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          end: 'top 50%',  
+          scrub: true,
+          onLeave: () => gsap.to(el, { opacity: 0, y: -20, duration: 0.3 }),
           onEnterBack: () => gsap.to(el, { opacity: 1, y: 0, duration: 0.3 })
-            }
-            })
-        })
-    },sectionRef.value)
-  })
-
-  onUnmounted(() => {
-        if(ctx) ctx.revert()
+        }
+      })
     })
+
+    // 2. Carousel Loop Timeline (Section 2)
+    const slideDuration = 4 // Durasi tiap slide (detik)
+    carouselTimeline = gsap.timeline({ repeat: -1 })
+
+    slides.forEach((_, index) => {
+      carouselTimeline
+        // Reset progress bar ke 0% di awal setiap step
+        .set(progressBarRef.value, { width: "0%" })
+        // Jalankan progress bar ke 100% menggunakan linear ease
+        .to(progressBarRef.value, {
+          width: "100%",
+          duration: slideDuration,
+          ease: "none"
+        })
+        // Tepat setelah bar penuh, ganti data slide dengan animasi pudar
+        .call(() => {
+          const nextIndex = (index + 1) % slides.length
+          
+          // Animasikan konten teks di bagian kiri
+          gsap.to(".carousel-content", {
+            opacity: 0,
+            y: -10,
+            duration: 0.3,
+            onComplete: () => {
+              currentSlide.value = nextIndex
+              activeText.value = slides[nextIndex]
+              gsap.to(".carousel-content", { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" })
+            }
+          })
+        })
+    })
+
+    // Pasang ScrollTrigger agar carousel otomatis pause jika user belum scroll ke section ini
+    ScrollTrigger.create({
+      trigger: aboutSectionRef.value,
+      start: "top 80%",
+      onEnter: () => carouselTimeline.play(),
+      onLeaveBack: () => carouselTimeline.pause(),
+    })
+
+  }, sectionRef.value)
+})
+
+onUnmounted(() => {
+  if (ctx) ctx.revert()
+  if (carouselTimeline) carouselTimeline.kill()
+})
 </script>
 
 <template>  
-
-    <section 
+  <!-- Section 1: Intro Reveal -->
+  <section 
     ref="sectionRef"
-    class="bg-black py-16 md:py-26 items-center justify-center flex flex-col gap-0.5 md:gap-8 text-white min-h-screen"
+    class="bg-black py-16 md:py-26 items-center justify-center flex flex-col gap-0.5 md:gap-8 text-white min-h-screen select-none overflow-hidden"
   >
-    <h1 class="reveal-text text-8xl font-bold opacity-0 translate-y-4 uppercase">Kanvas Digital</h1>
-    <h1 class="reveal-text text-4xl font-bold opacity-0 translate-y-4">Make Your Dream</h1>
-    <h1 class="reveal-text text-8xl font-bold opacity-0 translate-y-4 uppercase">Come True</h1>
-    <h1 class="reveal-text text-4xl font-bold opacity-0 translate-y-4">With Code.</h1>
-    <h1 class="reveal-text text-8xl font-bold opacity-0 translate-y-4 uppercase">In internet</h1>
-    <h1 class="reveal-text text-4xl font-bold opacity-0 translate-y-4">Canvas.</h1>  
+    <h1 class="reveal-text text-6xl md:text-8xl font-medium opacity-0 translate-y-4 uppercase tracking-tighter">Kanvas Digital</h1>
+    <h1 class="reveal-text text-2xl md:text-4xl font-normal opacity-0 translate-y-4 tracking-tight text-neutral-400">Make Your Dream</h1>
+    <h1 class="reveal-text text-6xl md:text-8xl font-medium opacity-0 translate-y-4 uppercase tracking-tighter">Come True</h1>
+    <h1 class="reveal-text text-2xl md:text-4xl font-normal opacity-0 translate-y-4 tracking-tight text-neutral-400">With Code.</h1>
+    <h1 class="reveal-text text-6xl md:text-8xl font-medium opacity-0 translate-y-4 uppercase tracking-tighter">In internet</h1>
+    <h1 class="reveal-text text-2xl md:text-4xl font-normal opacity-0 translate-y-4 tracking-tight text-neutral-400">Canvas.</h1>  
   </section>
 
-  <section class="bg-graphite py-16 px-6 md:px-0"> 
-    <div class="grid gap-8 mx-0 md:mx-28 grid-cols-1 md:grid-cols-2 justify-between text-white">
-   <div class=" items-start flex flex-col">
-    <div class="h-1/2 w-full    ">
-        <h1 class="text-2xl font-bold uppercase">about</h1>
-        <p class="max-w-full text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse sint, repellendus nihil ad aut quod eveniet optio, incidunt aliquid numquam rem accusantium officia velit! Cumque, doloremque. Alias rem architecto quae?</p>
-        <div class="h-1 w-full rounded-2xl bg-amber-50 mt-3"></div>
-    </div>
-
-   </div>
-      <div class="bg-red-400 flex text-2xl md:text-4xl font-bold items-center justify-center flex-col gap-4 py-8 md:py-0">
-        <h1>lorem ipsum</h1>
-        <h1>lorem ipsum</h1>
-        <h1>lorem ipsum</h1>
-        <h1>lorem ipsum</h1>
-        <h1>lorem ipsum</h1>
+  <!-- Section 2: Fixed About with Autoplay Carousel & Typography Grid -->
+  <section ref="aboutSectionRef" class="bg-neutral-950 py-24 px-6 md:px-0 border-t border-neutral-900 selection:bg-white selection:text-black"> 
+    <div class="grid gap-16 mx-0 md:mx-28 grid-cols-1 md:grid-cols-2 items-center text-white max-w-6xl md:mx-auto">
+      
+      <!-- KIRI: Carousel Area + Timer Bar -->
+      <div class="flex flex-col justify-between h-[100px] md:h-[150px] relative">
+        <div class="carousel-content space-y-4">
+          <span class="font-mono text-xs text-neutral-500 uppercase tracking-widest">// 0{{ currentSlide + 1 }} . context</span>
+          <h2 class="text-3xl font-medium tracking-tight text-neutral-100 uppercase">{{ activeText.title }}</h2>
+          <p class="max-w-md text-sm md:text-base text-neutral-400 leading-relaxed">{{ activeText.description }}</p>
+        </div>
+        
+        <!-- White Progress Bar Wrapper -->
+        <div class="w-full h-[2px] bg-neutral-900 rounded-full overflow-hidden mt-auto">
+          <div ref="progressBarRef" class="h-full bg-white will-change-[width] w-0"></div>
+        </div>
       </div>
+
+      <!-- KANAN: Kinetic Typography List -->
+      <!-- Menggunakan text-neutral-600 sebagai default, dan highlight item aktif dengan warna putih pekat -->
+      <div class="flex flex-col gap-4 py-4 md:py-0 font-medium tracking-tight text-3xl md:text-5xl uppercase select-none">
+        <h1 
+          v-for="(slide, index) in slides" 
+          :key="index"
+          class="transition-all duration-500 ease-out"
+          :class="currentSlide === index ? 'text-white translate-x-2' : 'text-neutral-800 scale-95'"
+        >
+          {{ slide.title }}
+        </h1>
+      </div>
+
     </div>
   </section>
-
-
-</template>
+</template> 

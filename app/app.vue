@@ -1,14 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 
-
-
- const musik = [
-  {id: 1,title:'Hindia', artist: '', url: '',image: ''},
-  {id: 2,title:'', artist: '', url: '',image: ''},
- ]
-
-
 </script>
 
 <template>
@@ -17,38 +9,44 @@ import { ref, onMounted, onUnmounted } from 'vue'
   <hero />
 <about />
  <work/>
-  <section class="relative bg-graphite min-h-screen pt-32 pb-12 text-center flex flex-col items-center justify-between px-4">
-    <div></div>
+ <closethe/>
 
-    <div class="flex flex-col gap-2 md:gap-4 items-center justify-center">
-      <h1 class="text-5xl md:text-7xl font-bold text-white">Close</h1>
-      <h1 class="text-5xl md:text-7xl font-bold text-white">The</h1>
-      <h1 class="text-5xl md:text-7xl font-bold text-white">Gap</h1>
-    </div>
+ <section class="relative bg-neutral-100 min-h-screen py-16 md:py-24 flex flex-col justify-between px-6 md:px-24 overflow-hidden">
+  
+  <div class="absolute inset-0 z-0 bg-[url('path-ke-foto-kamu.jpg')] bg-cover bg-center bg-no-repeat opacity-40 mix-blend-luminosity"></div>
+  
+  <div class="absolute inset-0 z-0 bg-gradient-to-t from-neutral-950 via-neutral-950/70 to-neutral-950/40"></div>
 
-    <p class="text-xl font-bold text-white mt-auto pt-16">
-      lorem ipsum
-    </p>
-  </section>
-
-  <section class="bg-black min-h-screen py-16 md:py-24 flex flex-col justify-between px-6 md:px-0">
+  <div class="relative z-10 w-full flex flex-col md:flex-row md:items-end md:justify-between border-b border-white/10 pb-8 mt-12 md:mt-0">
+    <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white uppercase tracking-tighter leading-none text-center md:text-left">
+      ping me <br class="hidden md:block" /> for work
+    </h1>
     
-    <div class="mx-0 md:mx-28 relative pb-24 md:pb-16 flex flex-col items-center md:block">
-      <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold text-center justify-center flex text-white uppercase tracking-widest2">
-        ping me for work
-      </h1>
-      <h1 class="text-lg md:text-xl text-white mt-4 md:mt-0 static md:absolute md:bottom-0 md:right-0 text-center md:text-right font-light italic opacity-80">
-        Lorem ipsum dolor sit amet
-      </h1>
-    </div>
+    <p class="text-xs md:text-sm text-neutral-400 mt-6 md:mt-0 max-w-xs text-center md:text-right font-mono tracking-wider uppercase">
+      // let's create something stupidly beautiful together.
+    </p>
+  </div>
 
-    <div class="mx-0 md:mx-48 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mt-auto pt-12">
-      <a href="#" class="text-white border border-white/20 p-4 text-center rounded block">Link 1</a>
-      <a href="#" class="text-white border border-white/20 p-4 text-center rounded block">Link 2</a>
-      <a href="#" class="text-white border border-white/20 p-4 text-center rounded block">Link 3</a>
-    </div>
+  <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-4 w-full mt-auto pt-16">
+    
+    <a href="#" class="group flex justify-between items-center text-white border border-white/20 hover:border-white bg-neutral-900/30 backdrop-blur-md px-6 py-4 rounded-none font-mono text-xs uppercase tracking-widest transition-all duration-300 hover:bg-white hover:text-black">
+      <span>[ instagram ]</span>
+      <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+    </a>
+    
+    <a href="#" class="group flex justify-between items-center text-white border border-white/20 hover:border-white bg-neutral-900/30 backdrop-blur-md px-6 py-4 rounded-none font-mono text-xs uppercase tracking-widest transition-all duration-300 hover:bg-white hover:text-black">
+      <span>[ email_me ]</span>
+      <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+    </a>
+    
+    <a href="#" class="group flex justify-between items-center text-white border border-white/20 hover:border-white bg-neutral-900/30 backdrop-blur-md px-6 py-4 rounded-none font-mono text-xs uppercase tracking-widest transition-all duration-300 hover:bg-white hover:text-black">
+      <span>[ cv_resume ]</span>
+      <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+    </a>
+    
+  </div>
 
-  </section>
+</section>
 
   <footeraku/>
-</template>
+</template> 
