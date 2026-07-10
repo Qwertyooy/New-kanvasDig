@@ -18,8 +18,8 @@ import { ref, onMounted, onUnmounted } from 'vue'
   <div class="absolute inset-0 z-0 bg-gradient-to-t from-neutral-950 via-neutral-950/70 to-neutral-950/40"></div>
 
   <div class="relative z-10 w-full flex flex-col md:flex-row md:items-end md:justify-between border-b border-white/10 pb-8 mt-12 md:mt-0">
-    <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white uppercase tracking-tighter leading-none text-center md:text-left">
-      ping me <br class="hidden md:block" /> for work
+    <h1 class="text-4xl sm:text-5xl md:text-7xl font-amoria font-extrabold text-white uppercase tracking-tighter leading-none text-center md:text-left">
+      ping me <br class="hidden md:block" /> <span class="font-styling">for</span>  work
     </h1>
     
     <p class="text-xs md:text-sm text-neutral-400 mt-6 md:mt-0 max-w-xs text-center md:text-right font-mono tracking-wider uppercase">

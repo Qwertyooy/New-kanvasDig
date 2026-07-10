@@ -69,20 +69,32 @@ const initializeApp = () => {
         </div>  
         
         
-        <button @click="initializeApp" class="animate-fade-in-up [animation-delay:300ms] cursor-pointer font-mono text-sm bg-neutral-900 text-neutral-100 px-8 py-3 rounded-md border border-neutral-700 hover:bg-transparent hover:text-neutral-900 hover:border-neutral-900 transition-all duration-200 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2)] hover:shadow-none">
+        <button @click="initializeApp" class="animate-fade-in-up [animation-delay:300ms] cursor-pointer font-mono text-sm bg-neutral-900 text-neutral-100 px-8 py-3 rounded-md border border-neutral-700 hover:bg-transparent hover:text-neutral-900 hover:border-neutral-900 hover:font-amoria hover:tracking-widest transition-all duration-200 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2)] hover:shadow-none">
           &lt; INITIALIZE &gt;
         </button>
       </div>
 
 
-      <h1 class="animate-tech-in pointer-events-none select-none
-                 text-5xl sm:text-7xl md:text-8xl lg:text-9xl 
-                 font-display uppercase font-extrabold 
-                 tracking-[0.2em] sm:tracking-[0.4em] md:tracking-[0.5em]
-                 absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 
-                 text-ink/10 text-center whitespace-nowrap z-0">
-        Portfolio
-      </h1>
+     <h1 class="animate-tech-in pointer-events-none select-none
+           text-5xl sm:text-7xl md:text-8xl lg:text-9xl 
+           font-display uppercase font-extrabold 
+
+           flex justify-center items-baseline
+           gap-[0.2em] sm:gap-[0.4em] md:gap-[0.5em]
+           /* ----------------------------------------- */
+           absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 
+           text-ink/10 text-center whitespace-nowrap z-0">
+  <span>P</span>
+  <span class="font-styling"><em>o</em></span>
+  <span>r</span>
+  <span>t</span>
+  <span>f</span>
+  <span class="font-amoria">o</span>
+  <span>l</span>
+  <span>i</span>
+  <span>o</span>
+</h1>
+
 
     </section>
   </UMain>

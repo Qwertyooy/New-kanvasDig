@@ -18,7 +18,7 @@ const NavLink = [
         :key="link.title"
         :href="link.href"
         
-        class="animate-fade-in-up [animation-delay:var(--animation-delay)] text-sm text-graphite transition-colors hover:text-ink cursor-pointer"
+        class="relative inline-block px-6 text-sm uppercase text-graphite bg-gradient-to-r from-accent to-accent bg-[length:0%_100%] bg-left-bottom bg-no-repeat transition-all duration-500 ease-out hover:bg-[length:100%_100%] hover:text-white"
         >
         {{ link.title }}
       </a>

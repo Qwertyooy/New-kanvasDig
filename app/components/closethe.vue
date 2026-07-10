@@ -49,13 +49,13 @@ onUnmounted(() => {
     <div></div>
 
     <div class="flex flex-col gap-1 md:gap-2 items-center justify-center tracking-tighter">
-      <h1 ref="closeRef" class="text-6xl md:text-8xl font-medium text-neutral-100 will-change-transform">
+      <h1 ref="closeRef" class="text-6xl md:text-8xl font-medium text-neutral-100 font-amoria uppercase will-change-transform">
         Close
       </h1>
-      <h1 ref="theRef" class="text-6xl md:text-8xl font-medium text-neutral-100 will-change-transform">
+      <h1 ref="theRef" class="text-6xl md:text-8xl font-medium font-styling uppercase text-neutral-100 will-change-transform">
         The
       </h1>
-      <h1 ref="gapRef" class="text-6xl md:text-8xl font-medium text-neutral-100 will-change-transform">
+      <h1 ref="gapRef" class="text-6xl md:text-8xl font-medium uppercase  text-neutral-100 will-change-transform">
         Gap
       </h1>
     </div>

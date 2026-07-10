@@ -1,6 +1,14 @@
 @import "tailwindcss";
 
 
+@font-face {
+  font-family: 'Amoria';
+  src: url('/fonts/AMORIA.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Mencegah teks hilang saat loading */
+}
+
 @theme {
   /* === PALET WARNA === */
   --color-cream: #F5F3EF;
@@ -17,6 +25,9 @@
   /* === TIPOGRAFI === */
   --font-display: "Space Grotesk", sans-serif;
   --font-sans: "Inter", sans-serif;
+  --font-styling:"Jacquard 12";
+  --font-amoria: 'Amoria';
+  
 
   /* === LETTER SPACING === */
   --tracking-widest2: 0.2em;
