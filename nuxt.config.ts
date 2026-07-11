@@ -14,5 +14,5 @@ export default defineNuxtConfig({
     transpile: ['gsap']
   },
 
-  modules: ['@nuxt/ui'],
+  modules: ['@nuxt/ui','@nuxt/icon'],
 });

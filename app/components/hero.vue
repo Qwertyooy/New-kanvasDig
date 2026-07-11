@@ -31,9 +31,18 @@ const initializeApp = () => {
 </script>
 
 <template>
-  <UMain class="bg-cream h-screen w-full flex items-center justify-center overflow-hidden">
-    <section class="relative w-full max-w-6xl h-full flex flex-col items-center justify-center px-4 isolate">
-
+  <UMain  class="bg-cream h-screen w-full flex items-center justify-center overflow-hidden">
+    <video 
+  autoplay 
+  loop 
+  muted 
+  playsinline
+  class="w-full h-full object-cover absolute z-0"
+>
+  <source src="/video/skyline.mp4" type="video/mp4">
+  Browser kamu tidak mendukung pemutaran video.
+</video>
+    <section  class="relative w-full max-w-6xl h-full flex flex-col items-center justify-center px-4 isolate">
      
       <audio ref="audioRef" :src="selectedTrack" loop></audio>
 
@@ -82,7 +91,7 @@ const initializeApp = () => {
            flex justify-center items-baseline
            gap-1 md:gap-[0.4em]
            absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 
-           text-ink/10 text-center whitespace-nowrap z-0">
+           text-paper opacity-85 text-center whitespace-nowrap z-0">
   <span>P</span>
   <span class="font-styling">o</span>
   <span>r</span>

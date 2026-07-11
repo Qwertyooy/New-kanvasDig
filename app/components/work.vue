@@ -28,7 +28,7 @@ const workacu = [
 </script>
 
 <template>
-  <section class="bg-black text-neutral-400 py-20 px-4 sm:px-6 md:px-12 selection:bg-white selection:text-black overflow-x-hidden">
+  <section data-theme="dark" class="bg-black text-neutral-400 py-20 px-4 sm:px-6 md:px-12 selection:bg-white selection:text-black overflow-x-hidden">
     <div class="max-w-5xl mx-auto">
       
       

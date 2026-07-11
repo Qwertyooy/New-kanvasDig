@@ -43,6 +43,7 @@ onUnmounted(() => {
 
 <template>
   <section 
+  data-theme="dark"
     ref="sectionRef"
     class="relative bg-neutral-950 h-screen w-full text-center flex flex-col items-center justify-between px-4 overflow-hidden selection:bg-white selection:text-black"
   >

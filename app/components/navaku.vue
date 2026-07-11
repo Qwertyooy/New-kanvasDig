@@ -46,25 +46,25 @@ const isOpen = ref(false)
        <a 
             :class="[
                 'text-sm md:text-xl font-semibold transition-colors duration-300',
-                isDarkSection ? 'text-paper' : 'text-ink'
+                isDarkSection ? 'text-paper' : 'text-ink',
             ]"
         >
             KanvasDigital.my.id
         </a>
        
-        <nav class="py-2 items-center gap-8 hidden md:flex">
+        <nav class="py-2 items-center  hidden md:flex">
             <a
                 v-for="link in NavLink"
                 :key="link.title"
                 :href="link.href"
-                class="relative inline-block px-6 text-sm uppercase text-ink bg-gradient-to-r from-ink to-ink bg-[length:0%_100%] bg-left-bottom bg-no-repeat transition-all duration-500 ease-out hover:bg-[length:100%_100%] hover:text-white"
+                :class="['relative inline-block px-6 text-sm uppercase text-ink bg-gradient-to-r  bg-[length:0%_100%] bg-left-bottom bg-no-repeat transition-all duration-500 ease-out hover:bg-[length:100%_100%] hover:text-white', isDarkSection ? 'text-paper from-graphite  to-graphite' : 'text-ink from-ink to-ink']"
             >
                 {{ link.title }}
             </a>
         </nav>
 
         
-        <button class=" px-6 py-1 text-ink rounded-lg font-sans hidden md:flex font-medium  items-center gap-2 text-lg shadow-lg bg-gradient-to-r from-ink to-ink bg-[length:0%_100%] bg-left-bottom bg-no-repeat transition-all duration-500 ease-out hover:bg-[length:100%_100%] hover:text-paper border"> 
+        <button :class="[' px-6 py-1 text-ink rounded-lg font-sans hidden md:flex font-medium  items-center gap-2 text-lg shadow-lg bg-gradient-to-r bg-[length:0%_100%] bg-left-bottom bg-no-repeat transition-all duration-500 ease-out hover:bg-[length:100%_100%] hover:text-paper border', isDarkSection ? 'text-paper from-graphite to-graphite ' : 'text-ink from-ink to-ink']"> 
             lets collab <span class="text-lg">→</span> 
         </button>
 
@@ -87,8 +87,10 @@ const isOpen = ref(false)
     
     <div 
         :class="[
-            'fixed inset-0 z-40 bg-paper flex flex-col items-start justify-center transition-all duration-500 ease-in-out md:hidden', 
-            isOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-5 invisible'
+            'fixed inset-0 z-40 flex flex-col items-start justify-center transition-all duration-500 ease-in-out md:hidden', 
+            isDarkSection ? 'bg-ink' : 'bg-paper',
+            isOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-5 invisible',
+            
         ]"
     >
         
@@ -97,14 +99,14 @@ const isOpen = ref(false)
                 v-for="link in NavLink"
                 :key="link.title"
                 :href="link.href"
-                class="relative inline-block px-6 text-sm uppercase text-graphite bg-gradient-to-r from-ink to-ink bg-[length:0%_100%] bg-left-bottom bg-no-repeat transition-all duration-500 ease-out hover:bg-[length:100%_100%] hover:text-white"
+                class="relative inline-block px-6 text-sm uppercase text-graphite bg-gradient-to-r from-graphite to-graphite bg-[length:0%_100%] bg-left-bottom bg-no-repeat transition-all duration-500 ease-out hover:bg-[length:100%_100%] hover:text-white"
             >
                 {{ link.title }}
             </a>
         </nav>
         
         
-        <button class="mt-12 mx-8 px-6 py-1 text-ink rounded-lg font-sans font-medium flex items-center gap-2 text-lg shadow-lg bg-gradient-to-r from-ink to-ink bg-[length:0%_100%] bg-left-bottom bg-no-repeat transition-all duration-500 ease-out hover:bg-[length:100%_100%] hover:text-paper border"> 
+        <button :class="['mt-12 mx-8 px-6 py-1 text-graphite  rounded-lg font-sans font-medium flex items-center gap-2 text-lg shadow-lg bg-gradient-to-r from-graphite to-graphite bg-[length:0%_100%] bg-left-bottom bg-no-repeat transition-all duration-500 ease-out hover:bg-[length:100%_100%] hover:text-paper border', isDarkSection ? 'text-paper' : 'text-ink']"> 
             lets collab <span class="text-lg">→</span> 
         </button>
     </div>
