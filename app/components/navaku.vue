@@ -41,9 +41,9 @@ const isOpen = ref(false)
 
 <template>  
    
-    <header class="animate-tech-in fixed top-0 left-0 right-0 z-50 flex justify-between items-center w-full p-4 backdrop-blur-2xl bg-white/10">
-     
-       <a 
+    <header class="animate-tech-in fixed top-0 left-0 right-0 z-50 flex justify-between items-center w-full p-1 backdrop-blur-2xl bg-white/10">
+     <div class="flex items-center mx-4 w-full justify-between p-1">
+           <a 
             :class="[
                 'text-sm md:text-xl font-semibold transition-colors duration-300',
                 isDarkSection ? 'text-paper' : 'text-ink',
@@ -82,6 +82,7 @@ const isOpen = ref(false)
                 <span :class="['w-full h-0.5 bg-current transition-all duration-300 origin-left', isOpen ? '-rotate-45 translate-x-1' : '']"></span>
             </div>
         </button>
+        </div>
     </header>
 
     

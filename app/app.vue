@@ -11,6 +11,6 @@ import { ref, onMounted, onUnmounted } from 'vue'
  <work/>
  <closethe/>
 <kontak/>
-
+<liquid />
   <footeraku/>
 </template> 
