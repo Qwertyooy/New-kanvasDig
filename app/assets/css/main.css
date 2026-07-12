@@ -27,6 +27,7 @@
   --font-sans: "Inter", sans-serif;
   --font-styling:"Jacquard 12";
   --font-amoria: 'Amoria';
+  --font-kaya:"Luxurious Script";
   
 
   /* === LETTER SPACING === */
@@ -86,6 +87,14 @@
     filter: blur(0);
     transform: translateY(0);
   }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+.animate-shimmer {
+  animation: shimmer 1.5s infinite ease-in-out;
 }
 
 body {
