@@ -112,11 +112,11 @@ onUnmounted(() => {
     class="bg-black py-10 md:py-26 items-center justify-center flex flex-col gap-0.5 md:gap-8 text-white h-full select-none overflow-hidden"
     data-theme="dark"
   >
-    <h1 class="reveal-text font-amoria text-4xl md:text-8xl font-medium opacity-0 translate-y-4 uppercase tracking-tighter">Kanvas Digital</h1>
+    <h1 class="reveal-text font-mono text-4xl md:text-8xl font-medium opacity-0 translate-y-4 uppercase tracking-tighter">Kanvas Digital</h1>
     <h1 class="reveal-text text-xl md:text-4xl font-normal opacity-0 translate-y-4 tracking-tight text-neutral-400">Make Your Dream</h1>
-    <h1 class="reveal-text font-amoria text-4xl md:text-8xl font-medium opacity-0 translate-y-4 uppercase tracking-tighter">Come True</h1>
+    <h1 class="reveal-text font-mono text-4xl md:text-8xl font-medium opacity-0 translate-y-4 uppercase tracking-tighter">Come True</h1>
     <h1 class="reveal-text text-xl md:text-4xl font-normal opacity-0 translate-y-4 tracking-tight text-neutral-400">With Code.</h1>
-    <h1 class="reveal-text font-amoria text-4xl md:text-8xl font-medium opacity-0 translate-y-4 uppercase tracking-tighter">In internet</h1>
+    <h1 class="reveal-text font-mono text-4xl md:text-8xl font-medium opacity-0 translate-y-4 uppercase tracking-tighter">In internet</h1>
     <h1 class="reveal-text text-xl md:text-4xl font-normal opacity-0 translate-y-4 tracking-tight text-neutral-400">Canvas.</h1>  
   </section>
 
@@ -124,6 +124,7 @@ onUnmounted(() => {
   ref="aboutSectionRef" 
   class="bg-neutral-950 py-24 px-6 md:px-0 border-t border-neutral-900 selection:bg-white selection:text-black"
   data-theme="dark"
+  id="about"
   > 
   
   <div class="grid gap-8 mx-0 md:mx-28 grid-cols-1 md:grid-cols-2 items-center text-white max-w-6xl md:mx-auto">

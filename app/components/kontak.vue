@@ -3,7 +3,7 @@
 </script>
 
 <template>
-     <section data-theme="dark" class="relative bg-neutral-100 min-h-screen py-16 md:py-24 flex flex-col justify-between px-6 md:px-24 overflow-hidden">
+     <section id="contact"  data-theme="dark" class="relative bg-neutral-100 min-h-screen py-16 md:py-24 flex flex-col justify-between px-6 md:px-24 overflow-hidden">
   
   <div class="absolute inset-0 z-0 bg-[url('path-ke-foto-kamu.jpg')] bg-cover bg-center bg-no-repeat opacity-40 mix-blend-luminosity"></div>
   
@@ -19,19 +19,28 @@
     </p>
   </div>
 
-  <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-4 w-full mt-auto pt-16">
+  <div class="relative z-10 grid grid-cols-1 md:grid-cols-4 gap-4 w-full mt-auto pt-16">
     
-    <a href="#" class="group flex justify-between items-center text-white border border-white/20 hover:border-white bg-neutral-900/30 backdrop-blur-md px-6 py-4 rounded-none font-mono text-xs uppercase tracking-widest transition-all duration-300 hover:bg-white hover:text-black">
+    <!-- Instagram: Langsung buka profil via aplikasi/browser -->
+    <a href="https://instagram.com/nayooew" target="_blank" rel="noopener noreferrer" class="group flex justify-between items-center text-white border border-white/20 hover:border-white bg-neutral-900/30 backdrop-blur-md px-6 py-4 rounded-none font-mono text-xs uppercase tracking-widest transition-all duration-300 hover:bg-white hover:text-black">
       <span>[ instagram ]</span>
       <span class="transform group-hover:translate-x-1 transition-transform">→</span>
     </a>
     
-    <a href="#" class="group flex justify-between items-center text-white border border-white/20 hover:border-white bg-neutral-900/30 backdrop-blur-md px-6 py-4 rounded-none font-mono text-xs uppercase tracking-widest transition-all duration-300 hover:bg-white hover:text-black">
+    <!-- Email: Otomatis memicu aplikasi Gmail/Mail bawaan dengan subjek otomatis -->
+    <a href="mailto:xyznayo@gmail.com?subject=Halo%20KanvasDigital" class="group flex justify-between items-center text-white border border-white/20 hover:border-white bg-neutral-900/30 backdrop-blur-md px-6 py-4 rounded-none font-mono text-xs uppercase tracking-widest transition-all duration-300 hover:bg-white hover:text-black">
       <span>[ email_me ]</span>
       <span class="transform group-hover:translate-x-1 transition-transform">→</span>
     </a>
     
-    <a href="#" class="group flex justify-between items-center text-white border border-white/20 hover:border-white bg-neutral-900/30 backdrop-blur-md px-6 py-4 rounded-none font-mono text-xs uppercase tracking-widest transition-all duration-300 hover:bg-white hover:text-black">
+    <!-- WhatsApp: Membuka chat WA dengan format kode negara 62 (tanpa angka 0 di depan) -->
+    <a href="https://wa.me/6282256690579?text=Halo%20KanvasDigital,%20saya%20tertarik%20untuk%20collab" target="_blank" rel="noopener noreferrer" class="group flex justify-between items-center text-white border border-white/20 hover:border-white bg-neutral-900/30 backdrop-blur-md px-6 py-4 rounded-none font-mono text-xs uppercase tracking-widest transition-all duration-300 hover:bg-white hover:text-black">
+      <span>[ whatsapp ]</span>
+      <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+    </a>
+
+    <!-- CV/Resume: Mengarah ke file PDF di folder public atau link Google Drive -->
+    <a href="/cv-andra.pdf" target="_blank" class="group flex justify-between items-center text-white border border-white/20 hover:border-white bg-neutral-900/30 backdrop-blur-md px-6 py-4 rounded-none font-mono text-xs uppercase tracking-widest transition-all duration-300 hover:bg-white hover:text-black">
       <span>[ cv_resume ]</span>
       <span class="transform group-hover:translate-x-1 transition-transform">→</span>
     </a>
