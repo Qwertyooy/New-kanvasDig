@@ -10,7 +10,10 @@ const heroRef = ref<HTMLElement | null>(null)
 
 useHead({
   link: [
-    { rel: 'preload', href: '/video/bekgrond.mp4', as: 'video', type: 'video/mp4' }
+    { rel: 'preload', href: '/video/bekgrond.mp4', as: 'video', type: 'video/mp4' },
+    { rel: 'preload', href: '/asset/msc/hind.mp3', as: 'audio', type: 'audio/mpeg' },
+    { rel: 'preload', href: '/asset/msc/real.mp3', as: 'audio', type: 'audio/mpeg' },
+    { rel: 'preload', href: '/asset/msc/wind.mp3', as: 'audio', type: 'audio/mpeg' }
   ]
 })
 

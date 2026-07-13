@@ -51,7 +51,7 @@
       </NuxtLink>
 
       <NuxtLink 
-        to="/cv-andra.pdf" 
+        to="https://drive.google.com/drive/folders/1LFM8gKQ7_8JlnI4PpJotJtx2sD0dkg5n?usp=drive_link" 
         target="_blank" 
         class="group flex justify-between items-center text-white border border-white/20 hover:border-white bg-neutral-900/30 backdrop-blur-md px-6 py-4 font-mono text-xs uppercase tracking-widest transition-all duration-300 hover:bg-white hover:text-black"
       >

@@ -8,37 +8,38 @@ const workacu = [
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=500&auto=format&fit=crop',
     tech: ['Nuxt 3', 'Tailwind CSS', 'GSAP', 'PostgreSQL']
   },
-  {
-    num: '02', 
-    title: 'Financial Analytics Dashboard', 
-    desc: 'Real-time charting engine tracking digital assets, spot indices, and historical market metrics.', 
-    url: '#',
-    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=500&auto=format&fit=crop',
-    tech: ['Vue 3', 'TypeScript', 'Chart.js', 'Tailwind']
-  },
-  {
-    num: '03', 
-    title: 'Interactive Portfolio Hub', 
-    desc: 'High-performance static portfolio integrated with decoupled CMS nodes and automated workflows.', 
-    url: '#',
-    image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=500&auto=format&fit=crop',
-    tech: ['Jekyll', 'JavaScript', 'Decap CMS', 'GitHub Pages']
-  },
+  // {
+  //   num: '02', 
+  //   title: 'Financial Analytics Dashboard', 
+  //   desc: 'Real-time charting engine tracking digital assets, spot indices, and historical market metrics.', 
+  //   url: '#',
+  //   image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=500&auto=format&fit=crop',
+  //   tech: ['Vue 3', 'TypeScript', 'Chart.js', 'Tailwind']
+  // },
+  // {
+  //   num: '03', 
+  //   title: 'Interactive Portfolio Hub', 
+  //   desc: 'High-performance static portfolio integrated with decoupled CMS nodes and automated workflows.', 
+  //   url: '#',
+  //   image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=500&auto=format&fit=crop',
+  //   tech: ['Jekyll', 'JavaScript', 'Decap CMS', 'GitHub Pages']
+  // },
 ]
 </script>
 
+
 <template>
-  <section id="work"  data-theme="dark" class="bg-black text-neutral-400 py-20 px-4 sm:px-6 md:px-12 selection:bg-white selection:text-black overflow-x-hidden">
+  <section id="work" data-theme="dark" class="bg-black text-neutral-400 py-20 px-4 sm:px-6 md:px-12 selection:bg-white selection:text-black overflow-x-hidden">
     <div class="max-w-5xl mx-auto">
-      
       
       <div class="mb-12 md:mb-20">
         <p class="text-xs font-mono tracking-widest text-neutral-500 uppercase mb-2">// selected projects</p>
         <h1 class="text-3xl md:text-4xl font-medium tracking-tight text-neutral-100">
           Some things I've crafted.
         </h1>
+        <!-- Pesan placeholder opsional saat project kosong -->
+        <p class="text-sm font-mono text-neutral-600 mt-4">[ Projects are currently cooking. Check back soon! ]</p>
       </div>
-      
       
       <div class="flex flex-col border-t border-neutral-800">
         <a 
@@ -47,7 +48,7 @@ const workacu = [
           :href="work.url"
           class="group relative flex flex-col lg:flex-row lg:items-center justify-between py-6 md:py-12 border-b border-neutral-800 transition-all duration-300 hover:border-neutral-400"
         >
-         
+          <!-- Struktur kode v-for kamu tetap utuh di sini dan tidak akan error -->
           <div class="flex items-start gap-4 md:gap-12 w-full lg:w-7/12">
             <span class="font-mono text-xs text-neutral-600 pt-1 group-hover:text-neutral-400 transition-colors">
               {{ work.num }}
@@ -62,7 +63,6 @@ const workacu = [
             </div>
           </div>
 
-          
           <div class="mt-4 lg:mt-0 flex flex-wrap gap-1.5 justify-start lg:justify-end w-full lg:w-4/12 pl-8 lg:pl-0 z-20">
             <span 
               v-for="tech in work.tech" 
@@ -82,11 +82,9 @@ const workacu = [
               />
             </div>
           </div>
-
         </a>
       </div>
 
-      
       <div class="w-full text-right mt-6">
         <a href="#" class="text-sm font-mono text-neutral-500 hover:text-white transition-colors duration-200 inline-flex items-center gap-2">
           See All Projects <span class="text-xs">→</span>

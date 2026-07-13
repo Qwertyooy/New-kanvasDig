@@ -83,14 +83,19 @@ onUnmounted(() => {
         </nav>
 
         <!-- Tombol "lets collab" Desktop (Ditambahkan Active) -->
-        <button :class="[
-          'px-5 py-1.5 rounded-xl font-mono hidden md:flex items-center gap-2 text-xs uppercase tracking-wider transition-all duration-300 border backdrop-blur-sm shadow-sm select-none', 
-          isDarkSection 
-            ? 'bg-white/10 text-white border-white/20 hover:bg-white/20 hover:border-white/40 active:scale-95 active:bg-white/20' 
-            : 'bg-black/5 text-ink border-black/10 hover:bg-black/10 hover:border-black/20 active:scale-95 active:bg-black/10'
-        ]"> 
-            lets collab <span class="text-xs transition-transform duration-300 group-hover:translate-x-1">→</span> 
-        </button>
+        <NuxtLink 
+        to="https://wa.me/6282256690579?text=Halo%20KanvasDigital,%20saya%20tertarik%20untuk%20collab" 
+        target="_blank"
+            :class="[
+                'group px-5 py-1.5 rounded-xl font-mono hidden md:flex items-center gap-2 text-xs uppercase tracking-wider transition-all duration-300 border backdrop-blur-sm shadow-sm select-none', 
+                isDarkSection 
+                ? 'bg-white/10 text-white border-white/20 hover:bg-white/20 hover:border-white/40 active:scale-95' 
+                : 'bg-black/5 text-ink border-black/10 hover:bg-black/10 hover:border-black/20 active:scale-95'
+            ]"
+            > 
+            lets collab 
+            <span class="text-xs transition-transform duration-300 group-hover:translate-x-1">→</span> 
+        </NuxtLink>
 
         <!-- Hamburger Button Mobile (Ditambah Efek Active saat Di-tap) -->
         <button 
