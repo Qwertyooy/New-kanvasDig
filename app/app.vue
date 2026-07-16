@@ -17,8 +17,7 @@ useHead({
 </script>
 
 <template>
-  
-  <navaku />
+  <navaku/>
   <hero />
   <about />
   <work/>
