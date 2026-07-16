@@ -12,7 +12,7 @@ const workacu = [
   }
 ]
 
-// Project tambahan yang akan muncul di dalam panel rahasia (overlay)
+// Project tambahan 
 const otherProjects = [
   {
     num: '02', 
@@ -36,15 +36,14 @@ const isOverlayOpen = ref(false)
 
 const openOverlay = () => {
   isOverlayOpen.value = true
-  document.body.style.overflow = 'hidden' // Mengunci scroll body utama saat terbuka
+  document.body.style.overflow = 'hidden' 
 }
 
 const closeOverlay = () => {
   isOverlayOpen.value = false
-  document.body.style.overflow = '' // Mengembalikan scroll body semula
-}
+  document.body.style.overflow = '' }
 
-// Antisipasi jika komponen hancur saat overlay masih terbuka
+
 onUnmounted(() => {
   document.body.style.overflow = ''
 })
@@ -107,7 +106,6 @@ onUnmounted(() => {
         </a>
       </div>
 
-      <!-- Tombol Pemicu Menu Burger / Overlay -->
       <div class="w-full text-right mt-6">
         <button 
           @click="openOverlay" 
@@ -118,7 +116,7 @@ onUnmounted(() => {
       </div>
     </div>
 
-    <!-- OVERLAY SECTION (Gaya Menu Burger / Drawer Fullscreen) -->
+
     <Transition name="fade-slide">
       <div 
         v-if="isOverlayOpen" 
@@ -126,7 +124,7 @@ onUnmounted(() => {
       >
         <div class="max-w-5xl mx-auto relative">
           
-          <!-- Tombol Close (X) -->
+
           <button 
             @click="closeOverlay" 
             class="absolute top-0 right-0 text-neutral-500 hover:text-white font-mono text-sm flex items-center gap-2 transition-colors cursor-pointer focus:outline-none group"
@@ -174,7 +172,7 @@ onUnmounted(() => {
                 </span>
               </div>
 
-              <!-- Gambar di dalam overlay (tetap responsive) -->
+
               <div class="mt-6 pl-8 w-full max-w-xs sm:max-w-sm lg:max-w-none lg:w-auto lg:mt-0 lg:pl-0 lg:absolute lg:top-1/2 lg:right-1/4 lg:-translate-y-1/2 lg:pointer-events-none lg:opacity-0 lg:scale-95 lg:group-hover:opacity-100 lg:group-hover:scale-100 lg:group-hover:translate-x-12 transition-all duration-500 ease-out z-10">
                 <div class="aspect-video w-full lg:w-64 overflow-hidden rounded-lg shadow-2xl border border-neutral-800 bg-neutral-950">
                   <img 

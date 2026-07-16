@@ -1,4 +1,4 @@
-<!-- pages/index.vue (atau komponen utama kamu) -->
+
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 
