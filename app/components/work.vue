@@ -9,26 +9,34 @@ const workacu = [
     url: 'https://antrian-tgx.vercel.app',
     image: '/asset/img/benner-antrian.avif',
     tech: ['Nuxt 3', 'Tailwind CSS', 'GSAP', 'PostgreSQL']
+  },
+  {
+    num: '02', 
+    title: 'Realtime Blog Website (Beta-URL Github)', 
+    desc: 'A full-stack marketplace built for speed. Features instant filtering and lightning-fast checkout paths.', 
+    url: 'https://github.com/Qwertyooy/artifact',
+    image: '/asset/img/benenr-blog.avif',
+    tech: ['Nuxt 3', 'Tailwind CSS', 'sqlite','typescript']
   }
 ]
 
 // Project tambahan 
 const otherProjects = [
-  {
-    num: '02', 
-    title: 'Financial Analytics Dashboard', 
-    desc: 'Real-time charting engine tracking digital assets, spot indices, and historical market metrics.', 
-    url: '#',
-    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=500&auto=format&fit=crop',
-    tech: ['Vue 3', 'TypeScript', 'Chart.js', 'Tailwind']
+    {
+    num: '01', 
+    title: 'E-Commerce Platform', 
+    desc: 'A full-stack marketplace built for speed. Features instant filtering and lightning-fast checkout paths.', 
+    url: 'https://antrian-tgx.vercel.app',
+    image: '/asset/img/benner-antrian.avif',
+    tech: ['Nuxt 3', 'Tailwind CSS', 'GSAP', 'PostgreSQL']
   },
   {
-    num: '03', 
-    title: 'Interactive Portfolio Hub', 
-    desc: 'High-performance static portfolio integrated with decoupled CMS nodes and automated workflows.', 
-    url: '#',
-    image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=500&auto=format&fit=crop',
-    tech: ['Jekyll', 'JavaScript', 'Decap CMS', 'GitHub Pages']
+    num: '02', 
+    title: 'Realtime Blog Website (Beta-URL Github)', 
+    desc: 'A full-stack marketplace built for speed. Features instant filtering and lightning-fast checkout paths.', 
+    url: 'https://github.com/Qwertyooy/artifact',
+    image: '/asset/img/benner-blog.avif',
+    tech: ['Nuxt 3', 'Tailwind CSS', 'sqlite','typescript']
   }
 ]
 
