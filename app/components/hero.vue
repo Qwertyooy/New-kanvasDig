@@ -1,4 +1,3 @@
-
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 
@@ -10,7 +9,6 @@ const heroRef = ref<HTMLElement | null>(null)
 
 useHead({
   link: [
-    { rel: 'preload', href: '/video/bekgrond.mp4', as: 'video', type: 'video/mp4' },
     { rel: 'preload', href: '/asset/msc/hind.mp3', as: 'audio', type: 'audio/mpeg' },
     { rel: 'preload', href: '/asset/msc/real.mp3', as: 'audio', type: 'audio/mpeg' },
     { rel: 'preload', href: '/asset/msc/wind.mp3', as: 'audio', type: 'audio/mpeg' }
@@ -65,16 +63,37 @@ const toggleAmbient = () => {
   }
 }
 
+const handleVisibilityChange = () => {
+  if (document.hidden) {
+    if (!isMuted.value) {
+      if (sfxRef.value) sfxRef.value.pause()
+      if (audioRef.value) audioRef.value.pause()
+    }
+  } else {
+    if (!isMuted.value) {
+      if (isHeroActive.value && sfxRef.value) {
+        sfxRef.value.play().catch(err => console.log(err))
+      } else if (!isHeroActive.value && audioRef.value) {
+        audioRef.value.play().catch(err => console.log(err))
+      }
+    }
+  }
+}
+
+const handlePageHide = () => {
+  if (!isMuted.value) {
+    if (sfxRef.value) sfxRef.value.pause()
+    if (audioRef.value) audioRef.value.pause()
+  }
+}
+
 let observer: IntersectionObserver | null = null
 
 onMounted(() => {
-  if (document.readyState === 'complete') {
-    isLoading.value = false
-  } else {
-    window.addEventListener('load', () => {
-      isLoading.value = false
-    })
-  }
+  isLoading.value = false
+
+  document.addEventListener('visibilitychange', handleVisibilityChange)
+  window.addEventListener('pagehide', handlePageHide)
 
   if (heroRef.value) {
     observer = new IntersectionObserver((entries) => {
@@ -109,7 +128,8 @@ onMounted(() => {
 
 onUnmounted(() => {
   if (observer) observer.disconnect()
-  window.removeEventListener('load', () => { isLoading.value = false })
+  document.removeEventListener('visibilitychange', handleVisibilityChange)
+  window.removeEventListener('pagehide', handlePageHide)
 })
 </script>
 
@@ -123,8 +143,7 @@ onUnmounted(() => {
       class="bg-black relative w-full min-h-[100dvh] animate-soft-fade flex flex-col items-center px-4 py-8 isolate overflow-hidden"
     >
       
-      <!-- [ Bagian Video, Grid, dan Ambient Glow tetap sama seperti sebelumnya ] -->
-      <video autoplay loop muted playsinline class="w-full h-full object-cover absolute z-0 inset-0 opacity-30 mix-blend-screen pointer-events-none">
+      <video autoplay loop muted playsinline preload="none" class="w-full h-full object-cover absolute z-0 inset-0 opacity-30 mix-blend-screen pointer-events-none">
         <source src="/video/bekgrond.mp4" type="video/mp4">
       </video>
       <div class="absolute inset-0 grid grid-cols-4 pointer-events-none border-x border-white/5 z-0">
@@ -136,12 +155,10 @@ onUnmounted(() => {
       <div class="absolute top-0 left-1/4 w-[400px] h-[400px] bg-blue-900/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
       <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-purple-900/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
      
-      <audio ref="audioRef" :src="selectedTrack" loop />
-      <audio ref="sfxRef" :src="sfxAnginUrl" loop />
-      <!-- ================================================================== -->
+      <audio ref="audioRef" :src="selectedTrack" loop preload="none" />
+      <audio ref="sfxRef" :src="sfxAnginUrl" loop preload="auto" />
 
 
-      <!-- KUNCI PERBAIKAN: Kontainer Pembungkus Konten Utama -->
   <div class="absolute bottom-0 left-0 w-full flex flex-col items-center justify-end z-20 select-none translate-y-[8%] md:translate-y-[10%] pb-[10vh] animate-tech-in">
   
   <div class="w-[70vw] max-w-[210px] sm:max-w-[260px] p-2.5 sm:p-4 mb-4 sm:mb-8 md:mb-12 pointer-events-auto font-mono text-center bg-black/30 backdrop-blur-xl border border-white/5 rounded-xl shadow-[0_12px_40px_0_rgba(0,0,0,0.5)] animate-fade-in-up [animation-delay:300ms]">

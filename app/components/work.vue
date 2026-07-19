@@ -20,7 +20,6 @@ const workacu = [
   }
 ]
 
-// Project tambahan 
 const otherProjects = [
     {
     num: '01', 
@@ -35,9 +34,9 @@ const otherProjects = [
     title: 'Realtime Blog Website (Beta-URL Github)', 
     desc: 'A full-stack marketplace built for speed. Features instant filtering and lightning-fast checkout paths.', 
     url: 'https://github.com/Qwertyooy/artifact',
-    image: '/asset/img/benner-blog.avif',
+    image: '/asset/img/benenr-blog.avif',
     tech: ['Nuxt 3', 'Tailwind CSS', 'sqlite','typescript']
-  }
+  } 
 ]
 
 const isOverlayOpen = ref(false)
@@ -49,8 +48,8 @@ const openOverlay = () => {
 
 const closeOverlay = () => {
   isOverlayOpen.value = false
-  document.body.style.overflow = '' }
-
+  document.body.style.overflow = '' 
+}
 
 onUnmounted(() => {
   document.body.style.overflow = ''
@@ -69,23 +68,22 @@ onUnmounted(() => {
         <p v-if="workacu.length === 0" class="text-sm font-mono text-neutral-600 mt-4">[ Projects are currently cooking. Check back soon! ]</p>
       </div>
       
-      <!-- List Project Utama -->
       <div class="flex flex-col border-t border-neutral-800">
         <a 
           v-for="work in workacu" 
           :key="work.num"
           :href="work.url"
-          class="group relative flex flex-col lg:flex-row lg:items-center justify-between py-6 md:py-12 border-b border-neutral-800 transition-all duration-300 hover:border-neutral-400"
+          class="group relative flex flex-col lg:flex-row lg:items-center justify-between py-6 md:py-12 border-b border-neutral-800 transition-all duration-300 hover:border-neutral-400 active:border-neutral-400 touch-responsive"
         >
           <div class="flex items-start gap-4 md:gap-12 w-full lg:w-7/12">
-            <span class="font-mono text-xs text-neutral-600 pt-1 group-hover:text-neutral-400 transition-colors">
+            <span class="font-mono text-xs text-neutral-600 pt-1 group-hover:text-neutral-400 group-active:text-neutral-400 transition-colors">
               {{ work.num }}
             </span>
             <div class="space-y-2">
-              <h2 class="text-xl md:text-2xl font-normal tracking-tight text-neutral-200 group-hover:text-white transition-colors">
+              <h2 class="text-xl md:text-2xl font-normal tracking-tight text-neutral-200 group-hover:text-white group-active:text-white transition-colors">
                 {{ work.title }}
               </h2>
-              <p class="text-sm leading-relaxed text-neutral-500 max-w-md group-hover:text-neutral-400 transition-colors">
+              <p class="text-sm leading-relaxed text-neutral-500 max-w-md group-hover:text-neutral-400 group-active:text-neutral-400 transition-colors">
                 {{ work.desc }}
               </p>
             </div>
@@ -95,19 +93,18 @@ onUnmounted(() => {
             <span 
               v-for="tech in work.tech" 
               :key="tech"
-              class="text-xs font-mono px-2 py-0.5 text-neutral-500 bg-neutral-900/50 rounded border border-neutral-800/60 group-hover:border-neutral-700 group-hover:text-neutral-300 transition-all whitespace-nowrap"
+              class="text-xs font-mono px-2 py-0.5 text-neutral-500 bg-neutral-900/50 rounded border border-neutral-800/60 group-hover:border-neutral-700 group-hover:text-neutral-300 group-active:border-neutral-700 group-active:text-neutral-300 transition-all whitespace-nowrap"
             >
               {{ tech }}
             </span>
           </div>
 
-          <!-- Perbaikan Gambar Responsif (Inline di mobile, hover melayang di desktop) -->
-          <div class="mt-6 pl-8 w-full max-w-xs sm:max-w-sm lg:max-w-none lg:w-auto lg:mt-0 lg:pl-0 lg:absolute lg:top-1/2 lg:right-1/4 lg:-translate-y-1/2 lg:pointer-events-none lg:opacity-0 lg:scale-95 lg:group-hover:opacity-100 lg:group-hover:scale-100 lg:group-hover:translate-x-12 transition-all duration-500 ease-out z-10">
+          <div class="mt-6 pl-8 w-full max-w-xs sm:max-w-sm lg:max-w-none lg:w-auto lg:mt-0 lg:pl-0 lg:absolute lg:top-1/2 lg:right-1/4 lg:-translate-y-1/2 lg:pointer-events-none lg:opacity-0 lg:scale-95 lg:group-hover:opacity-100 lg:group-hover:scale-100 lg:group-hover:translate-x-12 group-active:opacity-100 group-active:scale-100 transition-all duration-500 ease-out z-10">
             <div class="aspect-video w-full lg:w-64 overflow-hidden rounded-lg shadow-2xl border border-neutral-800 bg-neutral-950">
               <img 
                 :src="work.image" 
                 :alt="work.title"
-                class="w-full h-full object-cover filter grayscale lg:contrast-125 lg:group-hover:grayscale-0 group-hover:grayscale-0 transition-all duration-700"
+                class="w-full h-full object-cover filter grayscale lg:contrast-125 lg:group-hover:grayscale-0 group-hover:grayscale-0 group-active:grayscale-0 transition-all duration-700"
               />
             </div>
           </div>
@@ -124,7 +121,6 @@ onUnmounted(() => {
       </div>
     </div>
 
-
     <Transition name="fade-slide">
       <div 
         v-if="isOverlayOpen" 
@@ -132,7 +128,6 @@ onUnmounted(() => {
       >
         <div class="max-w-5xl mx-auto relative">
           
-
           <button 
             @click="closeOverlay" 
             class="absolute top-0 right-0 text-neutral-500 hover:text-white font-mono text-sm flex items-center gap-2 transition-colors cursor-pointer focus:outline-none group"
@@ -148,23 +143,22 @@ onUnmounted(() => {
             </h2>
           </div>
 
-          <!-- List Project Tambahan di Dalam Overlay -->
           <div class="flex flex-col border-t border-neutral-800">
             <a 
               v-for="work in otherProjects" 
               :key="work.num"
               :href="work.url"
-              class="group relative flex flex-col lg:flex-row lg:items-center justify-between py-6 md:py-12 border-b border-neutral-800 transition-all duration-300 hover:border-neutral-400"
+              class="group relative flex flex-col lg:flex-row lg:items-center justify-between py-6 md:py-12 border-b border-neutral-800 transition-all duration-300 hover:border-neutral-400 active:border-neutral-400 touch-responsive"
             >
               <div class="flex items-start gap-4 md:gap-12 w-full lg:w-7/12">
-                <span class="font-mono text-xs text-neutral-600 pt-1 group-hover:text-neutral-400 transition-colors">
+                <span class="font-mono text-xs text-neutral-600 pt-1 group-hover:text-neutral-400 group-active:text-neutral-400 transition-colors">
                   {{ work.num }}
                 </span>
                 <div class="space-y-2">
-                  <h2 class="text-xl md:text-2xl font-normal tracking-tight text-neutral-200 group-hover:text-white transition-colors">
+                  <h2 class="text-xl md:text-2xl font-normal tracking-tight text-neutral-200 group-hover:text-white group-active:text-white transition-colors">
                     {{ work.title }}
                   </h2>
-                  <p class="text-sm leading-relaxed text-neutral-500 max-w-md group-hover:text-neutral-400 transition-colors">
+                  <p class="text-sm leading-relaxed text-neutral-500 max-w-md group-hover:text-neutral-400 group-active:text-neutral-400 transition-colors">
                     {{ work.desc }}
                   </p>
                 </div>
@@ -174,19 +168,18 @@ onUnmounted(() => {
                 <span 
                   v-for="tech in work.tech" 
                   :key="tech"
-                  class="text-xs font-mono px-2 py-0.5 text-neutral-500 bg-neutral-900/50 rounded border border-neutral-800/60 group-hover:border-neutral-700 group-hover:text-neutral-300 transition-all whitespace-nowrap"
+                  class="text-xs font-mono px-2 py-0.5 text-neutral-500 bg-neutral-900/50 rounded border border-neutral-800/60 group-hover:border-neutral-700 group-hover:text-neutral-300 group-active:border-neutral-700 group-active:text-neutral-300 transition-all whitespace-nowrap"
                 >
                   {{ tech }}
                 </span>
               </div>
 
-
-              <div class="mt-6 pl-8 w-full max-w-xs sm:max-w-sm lg:max-w-none lg:w-auto lg:mt-0 lg:pl-0 lg:absolute lg:top-1/2 lg:right-1/4 lg:-translate-y-1/2 lg:pointer-events-none lg:opacity-0 lg:scale-95 lg:group-hover:opacity-100 lg:group-hover:scale-100 lg:group-hover:translate-x-12 transition-all duration-500 ease-out z-10">
+              <div class="mt-6 pl-8 w-full max-w-xs sm:max-w-sm lg:max-w-none lg:w-auto lg:mt-0 lg:pl-0 lg:absolute lg:top-1/2 lg:right-1/4 lg:-translate-y-1/2 lg:pointer-events-none lg:opacity-0 lg:scale-95 lg:group-hover:opacity-100 lg:group-hover:scale-100 lg:group-hover:translate-x-12 group-active:opacity-100 group-active:scale-100 transition-all duration-500 ease-out z-10">
                 <div class="aspect-video w-full lg:w-64 overflow-hidden rounded-lg shadow-2xl border border-neutral-800 bg-neutral-950">
                   <img 
                     :src="work.image" 
                     :alt="work.title"
-                    class="w-full h-full object-cover filter grayscale lg:contrast-125 lg:group-hover:grayscale-0 group-hover:grayscale-0 transition-all duration-700"
+                    class="w-full h-full object-cover filter grayscale lg:contrast-125 lg:group-hover:grayscale-0 group-hover:grayscale-0 group-active:grayscale-0 transition-all duration-700"
                   />
                 </div>
               </div>
@@ -200,7 +193,6 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-/* Animasi Transisi Menu Burger / Overlay (Fade & Slide dari Bawah) */
 .fade-slide-enter-active,
 .fade-slide-leave-active {
   transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -210,5 +202,11 @@ onUnmounted(() => {
 .fade-slide-leave-to {
   opacity: 0;
   transform: translateY(20px);
+}
+
+/* KUNCI UTAMA PERBAIKAN SENTUHAN MOBILE */
+.touch-responsive {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
 }
 </style>

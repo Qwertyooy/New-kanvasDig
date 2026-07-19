@@ -96,21 +96,40 @@ onUnmounted(() => {
 
 <template>  
   <!-- Section 1: Full Screen & Centered -->
-  <section 
-    ref="sectionRef"
-    class="bg-black h-screen flex flex-col items-center justify-center text-white select-none overflow-hidden"
-    data-theme="dark"
-    >
-    <div ref="textGroupRef" class="flex flex-col items-center gap-2 md:gap-4 w-full px-6">
-      <h1 class="reveal-text font-mono text-3xl md:text-8xl font-medium uppercase tracking-tighter">Kanvas Digital</h1>
-      <h1 class="reveal-text text-xl md:text-4xl font-normal text-neutral-400">Make Your Dream</h1>
-      <h1 class="reveal-text font-mono text-4xl md:text-8xl font-medium uppercase tracking-tighter">Come True</h1>
-      <h1 class="reveal-text text-xl md:text-4xl font-normal text-neutral-400">With Code.</h1>
-      <h1 class="reveal-text font-mono text-4xl md:text-8xl font-medium uppercase tracking-tighter">In internet</h1>
-      <h1 class="reveal-text text-xl md:text-4xl font-normal text-neutral-400">Canvas.</h1>  
-    </div>
-  </section>
-
+   <section 
+  ref="sectionRef"
+  class="bg-black h-screen w-full flex flex-col items-center justify-center text-white select-none overflow-hidden"
+  data-theme="dark"
+>
+  <!-- 
+    PERBAIKAN UTAMA:
+    - Di mobile (default): Menggunakan `h-full py-16 justify-between` agar teks menyebar rata dari atas ke bawah.
+    - Di desktop (md:): Menggunakan `md:h-auto md:justify-center md:gap-4` untuk mengembalikan teks berkumpul di tengah dengan gap yang presisi.
+  -->
+  <div 
+    ref="textGroupRef" 
+    class="flex flex-col items-center justify-between h-full w-full px-6 py-12 md:py-0 md:h-auto md:justify-center md:gap-4"
+  >
+    <h1 class="reveal-text font-mono text-[9vw] md:text-8xl font-medium uppercase tracking-tighter leading-none text-center">
+      Kanvas Digital
+    </h1>
+    <h1 class="reveal-text text-lg md:text-4xl font-normal text-neutral-400 text-center">
+      Make Your Dream
+    </h1>
+    <h1 class="reveal-text font-mono text-[10vw] md:text-8xl font-medium uppercase tracking-tighter leading-none text-center">
+      Come True
+    </h1>
+    <h1 class="reveal-text text-lg md:text-4xl font-normal text-neutral-400 text-center">
+      With Code.
+    </h1>
+    <h1 class="reveal-text font-mono text-[10vw] md:text-8xl font-medium uppercase tracking-tighter leading-none text-center">
+      In internet
+    </h1>
+    <h1 class="reveal-text text-lg md:text-4xl font-normal text-neutral-400 text-center">
+      Canvas.
+    </h1>  
+  </div>
+</section>
   <!-- Section 2 -->
   <section ref="aboutSectionRef" data-theme="dark" class="bg-neutral-950 py-24 px-6 md:px-0 border-t border-neutral-900 min-h-screen flex items-center"> 
     <div class="grid gap-8 mx-auto grid-cols-1 md:grid-cols-2 items-center text-white max-w-6xl w-full">
